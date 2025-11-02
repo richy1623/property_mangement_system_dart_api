@@ -29,5 +29,13 @@ dependencies:
 
 ```shell
 dart run swagger_parser
-dart run build_runner build -d
+dart run build_runner build
 ```
+
+### Note on Tagging
+
+- To release a new version
+  - Bump the version in the `pubspec.yaml`
+  - Include `[release]` in the commit message
+
+> To release snapshot versions for testing use `x.y.z+aSNAPSHOT`
