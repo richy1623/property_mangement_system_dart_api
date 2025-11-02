@@ -1,6 +1,6 @@
 name: property_management_system_dart_api
 description: "A Flutter package for the Property Management System API integration."
-version: 0.0.1+2+SNAPSHOT
+version: 0.0.1+2SNAPSHOT
 publish_to: "none"
 
 environment:
