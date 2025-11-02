@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
 
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'ownership_state.dart';
@@ -21,9 +22,10 @@ class Ownership {
     required this.userName,
     this.contractStartDate,
   });
-  
-  factory Ownership.fromJson(Map<String, Object?> json) => _$OwnershipFromJson(json);
-  
+
+  factory Ownership.fromJson(Map<String, Object?> json) =>
+      _$OwnershipFromJson(json);
+
   @JsonKey(name: 'contract_start_date')
   final DateTime? contractStartDate;
   @JsonKey(name: 'monthly_repayment_amount')

@@ -20,7 +20,9 @@ Ownership _$OwnershipFromJson(Map<String, dynamic> json) => Ownership(
 );
 
 Map<String, dynamic> _$OwnershipToJson(Ownership instance) => <String, dynamic>{
-  'contract_start_date': instance.contractStartDate?.toIso8601String(),
+  'contract_start_date': instance.contractStartDate != null
+      ? DateFormat("yyyy-MM-dd").format(instance.contractStartDate!)
+      : null,
   'monthly_repayment_amount': instance.monthlyRepaymentAmount,
   'ownership_id': instance.ownershipId,
   'plot_id': instance.plotId,

@@ -21,7 +21,9 @@ OwnershipUpdateRequest _$OwnershipUpdateRequestFromJson(
 Map<String, dynamic> _$OwnershipUpdateRequestToJson(
   OwnershipUpdateRequest instance,
 ) => <String, dynamic>{
-  'contract_start_date': instance.contractStartDate?.toIso8601String(),
+  'contract_start_date': instance.contractStartDate != null
+      ? DateFormat("yyyy-MM-dd").format(instance.contractStartDate!)
+      : null,
   'monthly_repayment_amount': instance.monthlyRepaymentAmount,
   'ownership_id': instance.ownershipId,
   'state': instance.state,

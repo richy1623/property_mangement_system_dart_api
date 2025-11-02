@@ -22,7 +22,9 @@ OwnershipCreationRequest _$OwnershipCreationRequestFromJson(
 Map<String, dynamic> _$OwnershipCreationRequestToJson(
   OwnershipCreationRequest instance,
 ) => <String, dynamic>{
-  'contract_start_date': instance.contractStartDate?.toIso8601String(),
+  'contract_start_date': instance.contractStartDate != null
+      ? DateFormat("yyyy-MM-dd").format(instance.contractStartDate!)
+      : null,
   'monthly_repayment_amount': instance.monthlyRepaymentAmount,
   'plot_id': instance.plotId,
   'state': instance.state,

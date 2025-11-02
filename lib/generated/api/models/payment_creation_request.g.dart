@@ -25,7 +25,7 @@ Map<String, dynamic> _$PaymentCreationRequestToJson(
   PaymentCreationRequest instance,
 ) => <String, dynamic>{
   'amount': instance.amount,
-  'date': instance.date.toIso8601String(),
+  'date': DateFormat("yyyy-MM-dd").format(instance.date),
   'ownership_id': instance.ownershipId,
   'proof_of_payment_file': instance.proofOfPaymentFile,
   'reference': instance.reference,

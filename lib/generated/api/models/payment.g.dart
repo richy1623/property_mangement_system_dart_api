@@ -25,7 +25,7 @@ Payment _$PaymentFromJson(Map<String, dynamic> json) => Payment(
 Map<String, dynamic> _$PaymentToJson(Payment instance) => <String, dynamic>{
   'amount': instance.amount,
   'comment': instance.comment,
-  'date': instance.date.toIso8601String(),
+  'date': DateFormat("yyyy-MM-dd").format(instance.date),
   'last_changed_by_user': instance.lastChangedByUser,
   'ownership_id': instance.ownershipId,
   'payment_id': instance.paymentId,
