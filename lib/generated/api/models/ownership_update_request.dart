@@ -18,12 +18,11 @@ class OwnershipUpdateRequest {
     this.state,
     this.totalSaleValue,
   });
-
-  factory OwnershipUpdateRequest.fromJson(Map<String, Object?> json) =>
-      _$OwnershipUpdateRequestFromJson(json);
-
+  
+  factory OwnershipUpdateRequest.fromJson(Map<String, Object?> json) => _$OwnershipUpdateRequestFromJson(json);
+  
   @JsonKey(name: 'contract_start_date')
-  final String? contractStartDate;
+  final DateTime? contractStartDate;
   @JsonKey(name: 'monthly_repayment_amount')
   final int? monthlyRepaymentAmount;
   @JsonKey(name: 'ownership_id')

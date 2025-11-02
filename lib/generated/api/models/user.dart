@@ -21,9 +21,9 @@ class User {
     this.emailAddress,
     this.identificationNumber,
   });
-
+  
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
-
+  
   /// Optional cellphone number.
   @JsonKey(name: 'cellphone_number')
   final String? cellphoneNumber;

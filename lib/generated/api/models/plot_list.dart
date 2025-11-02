@@ -11,11 +11,12 @@ part 'plot_list.g.dart';
 /// A list of plots.
 @JsonSerializable()
 class PlotList {
-  const PlotList({required this.plots});
-
-  factory PlotList.fromJson(Map<String, Object?> json) =>
-      _$PlotListFromJson(json);
-
+  const PlotList({
+    required this.plots,
+  });
+  
+  factory PlotList.fromJson(Map<String, Object?> json) => _$PlotListFromJson(json);
+  
   /// Collection of plot objects.
   final List<Plot> plots;
 

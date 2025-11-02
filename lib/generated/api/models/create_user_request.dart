@@ -17,10 +17,9 @@ class CreateUserRequest {
     this.emailAddress,
     this.identificationNumber,
   });
-
-  factory CreateUserRequest.fromJson(Map<String, Object?> json) =>
-      _$CreateUserRequestFromJson(json);
-
+  
+  factory CreateUserRequest.fromJson(Map<String, Object?> json) => _$CreateUserRequestFromJson(json);
+  
   /// Optional cellphone number.
   @JsonKey(name: 'cellphone_number')
   final String? cellphoneNumber;

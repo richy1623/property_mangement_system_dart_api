@@ -15,10 +15,9 @@ class EstateCreationRequest {
     required this.location,
     required this.name,
   });
-
-  factory EstateCreationRequest.fromJson(Map<String, Object?> json) =>
-      _$EstateCreationRequestFromJson(json);
-
+  
+  factory EstateCreationRequest.fromJson(Map<String, Object?> json) => _$EstateCreationRequestFromJson(json);
+  
   /// District where the estate is situated.
   final String district;
 

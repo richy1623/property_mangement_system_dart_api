@@ -21,10 +21,9 @@ class Artifact {
     required this.uploadDate,
     required this.uploadedBy,
   });
-
-  factory Artifact.fromJson(Map<String, Object?> json) =>
-      _$ArtifactFromJson(json);
-
+  
+  factory Artifact.fromJson(Map<String, Object?> json) => _$ArtifactFromJson(json);
+  
   @JsonKey(name: 'artifact_id')
   final int artifactId;
 

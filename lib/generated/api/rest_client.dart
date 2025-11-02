@@ -14,7 +14,11 @@ import 'user_management/user_management_client.dart';
 ///
 /// Management API.
 class RestClient {
-  RestClient(Dio dio, {String? baseUrl}) : _dio = dio, _baseUrl = baseUrl;
+  RestClient(
+    Dio dio, {
+    String? baseUrl,
+  })  : _dio = dio,
+        _baseUrl = baseUrl;
 
   final Dio _dio;
   final String? _baseUrl;
@@ -27,18 +31,13 @@ class RestClient {
   PaymentManagementClient? _paymentManagement;
   UserManagementClient? _userManagement;
 
-  ArtifactManagementClient get artifactManagement =>
-      _artifactManagement ??= ArtifactManagementClient(_dio, baseUrl: _baseUrl);
+  ArtifactManagementClient get artifactManagement => _artifactManagement ??= ArtifactManagementClient(_dio, baseUrl: _baseUrl);
 
-  PropertyManagementClient get propertyManagement =>
-      _propertyManagement ??= PropertyManagementClient(_dio, baseUrl: _baseUrl);
+  PropertyManagementClient get propertyManagement => _propertyManagement ??= PropertyManagementClient(_dio, baseUrl: _baseUrl);
 
-  HealthCheckClient get healthCheck =>
-      _healthCheck ??= HealthCheckClient(_dio, baseUrl: _baseUrl);
+  HealthCheckClient get healthCheck => _healthCheck ??= HealthCheckClient(_dio, baseUrl: _baseUrl);
 
-  PaymentManagementClient get paymentManagement =>
-      _paymentManagement ??= PaymentManagementClient(_dio, baseUrl: _baseUrl);
+  PaymentManagementClient get paymentManagement => _paymentManagement ??= PaymentManagementClient(_dio, baseUrl: _baseUrl);
 
-  UserManagementClient get userManagement =>
-      _userManagement ??= UserManagementClient(_dio, baseUrl: _baseUrl);
+  UserManagementClient get userManagement => _userManagement ??= UserManagementClient(_dio, baseUrl: _baseUrl);
 }

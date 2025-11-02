@@ -48,15 +48,16 @@ class _PaymentManagementClient implements PaymentManagementClient {
   }
 
   @override
-  Future<PaymentList> getPaymentsForOwnership({
-    required int ownershipId,
+  Future<PaymentList> getPaymentsForOwnerships({
+    required GetOwnershipPaymentsRequest body,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'ownership_id': ownershipId};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
     final _options = _setStreamType<PaymentList>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
+      Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
             '/api/payment/ownership',

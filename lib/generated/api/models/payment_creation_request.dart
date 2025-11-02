@@ -20,10 +20,9 @@ class PaymentCreationRequest {
     required this.userCreatingPayment,
     this.proofOfPaymentFile,
   });
-
-  factory PaymentCreationRequest.fromJson(Map<String, Object?> json) =>
-      _$PaymentCreationRequestFromJson(json);
-
+  
+  factory PaymentCreationRequest.fromJson(Map<String, Object?> json) => _$PaymentCreationRequestFromJson(json);
+  
   final int amount;
   final DateTime date;
   @JsonKey(name: 'ownership_id')

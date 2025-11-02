@@ -13,10 +13,9 @@ class ArtifactReference {
     required this.artifactId,
     required this.fileDisplayName,
   });
-
-  factory ArtifactReference.fromJson(Map<String, Object?> json) =>
-      _$ArtifactReferenceFromJson(json);
-
+  
+  factory ArtifactReference.fromJson(Map<String, Object?> json) => _$ArtifactReferenceFromJson(json);
+  
   @JsonKey(name: 'artifact_id')
   final int artifactId;
   @JsonKey(name: 'file_display_name')

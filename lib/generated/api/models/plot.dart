@@ -17,9 +17,9 @@ class Plot {
     required this.plotNumber,
     required this.width,
   });
-
+  
   factory Plot.fromJson(Map<String, Object?> json) => _$PlotFromJson(json);
-
+  
   /// ID of the estate the plot belongs to.
   @JsonKey(name: 'estate_id')
   final int estateId;

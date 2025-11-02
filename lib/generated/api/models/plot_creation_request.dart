@@ -16,10 +16,9 @@ class PlotCreationRequest {
     required this.plotNumber,
     required this.width,
   });
-
-  factory PlotCreationRequest.fromJson(Map<String, Object?> json) =>
-      _$PlotCreationRequestFromJson(json);
-
+  
+  factory PlotCreationRequest.fromJson(Map<String, Object?> json) => _$PlotCreationRequestFromJson(json);
+  
   /// ID of the estate the plot belongs to.
   @JsonKey(name: 'estate_id')
   final int estateId;

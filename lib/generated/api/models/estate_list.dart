@@ -11,11 +11,12 @@ part 'estate_list.g.dart';
 /// A list of estates.
 @JsonSerializable()
 class EstateList {
-  const EstateList({required this.estates});
-
-  factory EstateList.fromJson(Map<String, Object?> json) =>
-      _$EstateListFromJson(json);
-
+  const EstateList({
+    required this.estates,
+  });
+  
+  factory EstateList.fromJson(Map<String, Object?> json) => _$EstateListFromJson(json);
+  
   /// Collection of estate objects.
   final List<Estate> estates;
 

@@ -16,8 +16,7 @@ part 'user_management_client.g.dart';
 
 @RestApi()
 abstract class UserManagementClient {
-  factory UserManagementClient(Dio dio, {String? baseUrl}) =
-      _UserManagementClient;
+  factory UserManagementClient(Dio dio, {String? baseUrl}) = _UserManagementClient;
 
   /// Register a new user in the system.
   ///
@@ -25,7 +24,9 @@ abstract class UserManagementClient {
   /// is not already taken.
   /// Authorization: bearer token.
   @POST('/api/user/create')
-  Future<User> createUser({@Body() required CreateUserRequest body});
+  Future<User> createUser({
+    @Body() required CreateUserRequest body,
+  });
 
   /// Return a list of users, filtered by optional parameters.
   ///
@@ -33,14 +34,18 @@ abstract class UserManagementClient {
   /// cellphone, email, or identification number.
   /// Authorization: bearer token.
   @POST('/api/user/list')
-  Future<List<User>> listUsers({@Body() required ListUsersRequest body});
+  Future<List<User>> listUsers({
+    @Body() required ListUsersRequest body,
+  });
 
   /// Authenticate a user and return an access token.
   ///
   /// Accepts a username and password, verifies credentials, and returns a JWT access token.
   /// for use in subsequent authenticated requests.
   @POST('/api/user/login')
-  Future<AccessTokenResponse> loginUser({@Body() required LoginRequest body});
+  Future<AccessTokenResponse> loginUser({
+    @Body() required LoginRequest body,
+  });
 
   /// Get user details and permissions.
   ///
@@ -49,7 +54,9 @@ abstract class UserManagementClient {
   ///
   /// [userId] - ID of the user to fetch details for.
   @GET('/api/user/{user_id}')
-  Future<User> getUserDetails({@Path('user_id') required int userId});
+  Future<User> getUserDetails({
+    @Path('user_id') required int userId,
+  });
 
   /// Update user details and permissions.
   ///

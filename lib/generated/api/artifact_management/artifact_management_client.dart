@@ -11,8 +11,7 @@ part 'artifact_management_client.g.dart';
 
 @RestApi()
 abstract class ArtifactManagementClient {
-  factory ArtifactManagementClient(Dio dio, {String? baseUrl}) =
-      _ArtifactManagementClient;
+  factory ArtifactManagementClient(Dio dio, {String? baseUrl}) = _ArtifactManagementClient;
 
   /// Retrieve artifact with a given artifact ID.
   ///
@@ -21,5 +20,7 @@ abstract class ArtifactManagementClient {
   ///
   /// [artifactId] - Artifact ID to return.
   @GET('/api/artifact/{artifact_id}')
-  Future<Artifact> getArtifact({@Path('artifact_id') required int artifactId});
+  Future<Artifact> getArtifact({
+    @Path('artifact_id') required int artifactId,
+  });
 }

@@ -16,10 +16,9 @@ class ListUsersRequest {
     this.nameRegex,
     this.username,
   });
-
-  factory ListUsersRequest.fromJson(Map<String, Object?> json) =>
-      _$ListUsersRequestFromJson(json);
-
+  
+  factory ListUsersRequest.fromJson(Map<String, Object?> json) => _$ListUsersRequestFromJson(json);
+  
   /// Filter users by cellphone number
   @JsonKey(name: 'cellphone_number')
   final String? cellphoneNumber;

@@ -21,8 +21,7 @@ part 'property_management_client.g.dart';
 
 @RestApi()
 abstract class PropertyManagementClient {
-  factory PropertyManagementClient(Dio dio, {String? baseUrl}) =
-      _PropertyManagementClient;
+  factory PropertyManagementClient(Dio dio, {String? baseUrl}) = _PropertyManagementClient;
 
   /// Create a new estate.
   ///
@@ -30,7 +29,9 @@ abstract class PropertyManagementClient {
   /// and creates a new estate record in the system.
   /// Authorization: bearer token.
   @POST('/api/estate/create')
-  Future<Estate> createEstate({@Body() required EstateCreationRequest body});
+  Future<Estate> createEstate({
+    @Body() required EstateCreationRequest body,
+  });
 
   /// Retrieve all estates in the system.
   ///
@@ -102,7 +103,9 @@ abstract class PropertyManagementClient {
   /// and creates a new plot record under the specified estate.
   /// Authorization: bearer token.
   @POST('/api/plot/create')
-  Future<Plot> createPlot({@Body() required PlotCreationRequest body});
+  Future<Plot> createPlot({
+    @Body() required PlotCreationRequest body,
+  });
 
   /// Retrieve plots filtered by optional criteria.
   ///
@@ -110,7 +113,9 @@ abstract class PropertyManagementClient {
   /// and returns matching plot records.
   /// Authorization: bearer token.
   @POST('/api/plot/list')
-  Future<PlotList> listPlots({@Body() required GetPlotsRequest body});
+  Future<PlotList> listPlots({
+    @Body() required GetPlotsRequest body,
+  });
 
   /// Fetch a plot with a given plot ID.
   ///
@@ -119,5 +124,7 @@ abstract class PropertyManagementClient {
   ///
   /// [plotId] - The ID of the plot record to retrieve.
   @GET('/api/plot/{plot_id}')
-  Future<Plot> getPlot({@Path('plot_id') required int plotId});
+  Future<Plot> getPlot({
+    @Path('plot_id') required int plotId,
+  });
 }

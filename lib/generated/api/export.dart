@@ -17,6 +17,7 @@ export 'models/create_user_request.dart';
 export 'models/estate.dart';
 export 'models/estate_creation_request.dart';
 export 'models/estate_list.dart';
+export 'models/get_ownership_payments_request.dart';
 export 'models/get_plots_request.dart';
 export 'models/list_users_request.dart';
 export 'models/login_request.dart';
@@ -37,3 +38,4 @@ export 'models/update_user_request.dart';
 export 'models/user.dart';
 // Root client
 export 'rest_client.dart';
+

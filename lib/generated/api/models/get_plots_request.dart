@@ -4,6 +4,8 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
+import 'ownership_state.dart';
+
 part 'get_plots_request.g.dart';
 
 /// Request to filter plots based on criteria.
@@ -15,13 +17,12 @@ class GetPlotsRequest {
     this.phase,
     this.plotNumber,
   });
-
-  factory GetPlotsRequest.fromJson(Map<String, Object?> json) =>
-      _$GetPlotsRequestFromJson(json);
-
+  
+  factory GetPlotsRequest.fromJson(Map<String, Object?> json) => _$GetPlotsRequestFromJson(json);
+  
   /// List of allowed ownership states to filter by.
   @JsonKey(name: 'allowed_ownership_states')
-  final List<dynamic>? allowedOwnershipStates;
+  final List<OwnershipState>? allowedOwnershipStates;
 
   /// Filter by estate ID.
   @JsonKey(name: 'estate_id')

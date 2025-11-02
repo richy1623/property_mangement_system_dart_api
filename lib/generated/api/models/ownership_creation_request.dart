@@ -19,12 +19,11 @@ class OwnershipCreationRequest {
     required this.userId,
     this.contractStartDate,
   });
-
-  factory OwnershipCreationRequest.fromJson(Map<String, Object?> json) =>
-      _$OwnershipCreationRequestFromJson(json);
-
+  
+  factory OwnershipCreationRequest.fromJson(Map<String, Object?> json) => _$OwnershipCreationRequestFromJson(json);
+  
   @JsonKey(name: 'contract_start_date')
-  final String? contractStartDate;
+  final DateTime? contractStartDate;
   @JsonKey(name: 'monthly_repayment_amount')
   final int monthlyRepaymentAmount;
   @JsonKey(name: 'plot_id')

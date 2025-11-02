@@ -5,6 +5,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../models/get_ownership_payments_request.dart';
 import '../models/payment.dart';
 import '../models/payment_creation_request.dart';
 import '../models/payment_list.dart';
@@ -15,8 +16,7 @@ part 'payment_management_client.g.dart';
 
 @RestApi()
 abstract class PaymentManagementClient {
-  factory PaymentManagementClient(Dio dio, {String? baseUrl}) =
-      _PaymentManagementClient;
+  factory PaymentManagementClient(Dio dio, {String? baseUrl}) = _PaymentManagementClient;
 
   /// Create a new payment record.
   ///
@@ -24,17 +24,17 @@ abstract class PaymentManagementClient {
   /// ownership or have the `ModifyPayments` permission.
   /// Authorization: bearer token.
   @POST('/api/payment/')
-  Future<Payment> createPayment({@Body() required PaymentCreationRequest body});
+  Future<Payment> createPayment({
+    @Body() required PaymentCreationRequest body,
+  });
 
   /// Retrieve payments for a given ownership.
   ///
-  /// Accepts an ownership ID and returns all payments associated with it.
+  /// Accepts a list of ownership IDs and returns all payments associated with it.
   /// Authorization: bearer token.
-  ///
-  /// [ownershipId] - Ownership ID to filter payments by.
-  @GET('/api/payment/ownership')
-  Future<PaymentList> getPaymentsForOwnership({
-    @Query('ownership_id') required int ownershipId,
+  @POST('/api/payment/ownership')
+  Future<PaymentList> getPaymentsForOwnerships({
+    @Body() required GetOwnershipPaymentsRequest body,
   });
 
   /// Retrieve payments filtered by state.

@@ -11,11 +11,12 @@ part 'payment_list.g.dart';
 /// List wrapper for payments
 @JsonSerializable()
 class PaymentList {
-  const PaymentList({required this.payments});
-
-  factory PaymentList.fromJson(Map<String, Object?> json) =>
-      _$PaymentListFromJson(json);
-
+  const PaymentList({
+    required this.payments,
+  });
+  
+  factory PaymentList.fromJson(Map<String, Object?> json) => _$PaymentListFromJson(json);
+  
   final List<Payment> payments;
 
   Map<String, Object?> toJson() => _$PaymentListToJson(this);

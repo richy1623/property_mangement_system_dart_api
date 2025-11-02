@@ -16,9 +16,9 @@ class Estate {
     required this.location,
     required this.name,
   });
-
+  
   factory Estate.fromJson(Map<String, Object?> json) => _$EstateFromJson(json);
-
+  
   /// District where the estate is situated.
   final String district;
 

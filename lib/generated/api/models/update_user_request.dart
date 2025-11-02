@@ -4,6 +4,8 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
+import 'permission_type.dart';
+
 part 'update_user_request.g.dart';
 
 /// Payload to create a new user account.
@@ -20,10 +22,9 @@ class UpdateUserRequest {
     this.permissions,
     this.userName,
   });
-
-  factory UpdateUserRequest.fromJson(Map<String, Object?> json) =>
-      _$UpdateUserRequestFromJson(json);
-
+  
+  factory UpdateUserRequest.fromJson(Map<String, Object?> json) => _$UpdateUserRequestFromJson(json);
+  
   /// Optional cellphone number.
   @JsonKey(name: 'cellphone_number')
   final String? cellphoneNumber;
@@ -47,7 +48,7 @@ class UpdateUserRequest {
   final String? password;
 
   /// List of user permissions to grant
-  final List<dynamic>? permissions;
+  final List<PermissionType>? permissions;
 
   /// Unique user ID to update.
   @JsonKey(name: 'user_id')

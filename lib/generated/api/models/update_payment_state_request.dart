@@ -16,10 +16,9 @@ class UpdatePaymentStateRequest {
     required this.paymentId,
     required this.state,
   });
-
-  factory UpdatePaymentStateRequest.fromJson(Map<String, Object?> json) =>
-      _$UpdatePaymentStateRequestFromJson(json);
-
+  
+  factory UpdatePaymentStateRequest.fromJson(Map<String, Object?> json) => _$UpdatePaymentStateRequestFromJson(json);
+  
   final String comment;
   @JsonKey(name: 'payment_id')
   final int paymentId;

@@ -24,10 +24,9 @@ class Payment {
     required this.state,
     this.proofOfPayment,
   });
-
-  factory Payment.fromJson(Map<String, Object?> json) =>
-      _$PaymentFromJson(json);
-
+  
+  factory Payment.fromJson(Map<String, Object?> json) => _$PaymentFromJson(json);
+  
   final int amount;
   final String comment;
   final DateTime date;

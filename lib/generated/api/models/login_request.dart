@@ -9,11 +9,13 @@ part 'login_request.g.dart';
 /// Login credentials used to authenticate a user.
 @JsonSerializable()
 class LoginRequest {
-  const LoginRequest({required this.password, required this.username});
-
-  factory LoginRequest.fromJson(Map<String, Object?> json) =>
-      _$LoginRequestFromJson(json);
-
+  const LoginRequest({
+    required this.password,
+    required this.username,
+  });
+  
+  factory LoginRequest.fromJson(Map<String, Object?> json) => _$LoginRequestFromJson(json);
+  
   /// The user's password.
   final String password;
 

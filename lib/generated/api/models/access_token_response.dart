@@ -9,11 +9,13 @@ part 'access_token_response.g.dart';
 /// Represents the response containing the JWT access token issued after a successful login.
 @JsonSerializable()
 class AccessTokenResponse {
-  const AccessTokenResponse({required this.accessToken, required this.userId});
-
-  factory AccessTokenResponse.fromJson(Map<String, Object?> json) =>
-      _$AccessTokenResponseFromJson(json);
-
+  const AccessTokenResponse({
+    required this.accessToken,
+    required this.userId,
+  });
+  
+  factory AccessTokenResponse.fromJson(Map<String, Object?> json) => _$AccessTokenResponseFromJson(json);
+  
   /// The JWT access token string to be used for authorization in subsequent requests.
   @JsonKey(name: 'access_token')
   final String accessToken;
