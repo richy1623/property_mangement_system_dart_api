@@ -32,7 +32,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git tag $VERSION -m "V$VERSION - Release"
+          git tag -a $VERSION -m "V$VERSION - Release"
           git push origin $VERSION
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
