@@ -15,7 +15,7 @@ UpdateUserRequest _$UpdateUserRequestFromJson(Map<String, dynamic> json) =>
       isEmployee: json['is_employee'] as bool?,
       name: json['name'] as String?,
       password: json['password'] as String?,
-      permissions: json['permissions'] as List<dynamic>?,
+      permissions: json['permissions'],
       userName: json['user_name'] as String?,
     );
 

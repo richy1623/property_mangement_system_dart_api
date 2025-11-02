@@ -10,7 +10,9 @@ OwnershipUpdateRequest _$OwnershipUpdateRequestFromJson(
   Map<String, dynamic> json,
 ) => OwnershipUpdateRequest(
   ownershipId: (json['ownership_id'] as num).toInt(),
-  contractStartDate: json['contract_start_date'] as String?,
+  contractStartDate: json['contract_start_date'] != null
+      ? DateTime.parse(json['contract_start_date'] as String)
+      : null,
   monthlyRepaymentAmount: (json['monthly_repayment_amount'] as num?)?.toInt(),
   state: $enumDecodeNullable(_$OwnershipStateEnumMap, json['state']),
   totalSaleValue: (json['total_sale_value'] as num?)?.toInt(),

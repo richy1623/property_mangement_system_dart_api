@@ -8,8 +8,7 @@ part of 'get_plots_request.dart';
 
 GetPlotsRequest _$GetPlotsRequestFromJson(Map<String, dynamic> json) =>
     GetPlotsRequest(
-      allowedOwnershipStates:
-          json['allowed_ownership_states'] as List<dynamic>?,
+      allowedOwnershipStates: json['allowed_ownership_states'],
       estateId: (json['estate_id'] as num?)?.toInt(),
       phase: json['phase'] as String?,
       plotNumber: json['plot_number'] as String?,

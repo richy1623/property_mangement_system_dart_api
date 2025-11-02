@@ -14,7 +14,9 @@ Ownership _$OwnershipFromJson(Map<String, dynamic> json) => Ownership(
   totalSaleValue: (json['total_sale_value'] as num).toInt(),
   userId: (json['user_id'] as num).toInt(),
   userName: json['user_name'] as String,
-  contractStartDate: json['contract_start_date'] as String?,
+  contractStartDate: json['contract_start_date'] != null
+      ? DateTime.parse(json['contract_start_date'] as String)
+      : null,
 );
 
 Map<String, dynamic> _$OwnershipToJson(Ownership instance) => <String, dynamic>{
