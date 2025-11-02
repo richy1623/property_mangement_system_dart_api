@@ -34,6 +34,6 @@ jobs:
 
           COMMIT_SHA=$(git rev-parse HEAD) # Get the current commit SHA
           git tag -a $version $COMMIT_SHA -m "Release V$version"
-          git push origin $version
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
