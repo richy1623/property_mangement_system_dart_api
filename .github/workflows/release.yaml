@@ -1,0 +1,36 @@
+name: Release Tagging
+
+on:
+  push:
+    branches: ["**"]
+
+jobs:
+  tag_release:
+    name: Auto-Tag Version from Pubspec
+    if: ${{ contains(github.event.head_commit.message, '[release]') }}
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Extract Flutter package name and version
+        id: flutter_info
+        run: |
+          NAME=$(yq -r '.name' pubspec.yaml)
+          VERSION=$(yq -r '.version' pubspec.yaml | tr '+' '_')
+          echo "name=$NAME" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "name=$NAME"
+          echo "version=$VERSION"
+
+      - name: Create and Push Tag
+        run: |
+          COMMIT_SHA=$(git rev-parse HEAD) # Get the current commit SHA
+          git tag -a $TAG_NAME $COMMIT_SHA -m "Release $TAG_NAME"
+          git push origin $TAG_NAME
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,46 @@
+name: Package Validation
+
+on:
+  push:
+    branches: ["/**"]
+
+jobs:
+  validate:
+    name: Analyze and Compile Check
+    if: ${{ contains(github.event.head_commit.message, '[ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: Restore Pub Cache
+        uses: actions/cache/restore@v4
+        id: cache-pub-restore
+        with:
+          path: |
+            ${{ runner.tool_cache }}/flutter/pub-cache
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Save Pub Cache
+        uses: actions/cache/save@v4
+        if: steps.cache-pub-restore.outputs.cache-hit != 'true'
+        with:
+          path: |
+            ${{ runner.tool_cache }}/flutter/pub-cache
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Run Code Analysis
+        run: flutter analyze

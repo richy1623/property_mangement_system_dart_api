@@ -1,0 +1,24 @@
+name: property_management_system_dart_api
+description: "A Flutter package for the Property Management System API integration."
+version: 0.0.1+1
+publish_to: "none"
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  swagger_parser: ^1.26.2
+  intl: ^0.20.2
+  retrofit: ^4.8.0
+  dio: ^5.8.0+1
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.7.1
+  retrofit_generator: 10.1.0
