@@ -29,6 +29,9 @@ jobs:
 
       - name: Create and Push Tag
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
           COMMIT_SHA=$(git rev-parse HEAD) # Get the current commit SHA
           git tag -a $TAG_NAME $COMMIT_SHA -m "Release $TAG_NAME"
           git push origin $TAG_NAME
