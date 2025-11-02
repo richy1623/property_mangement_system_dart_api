@@ -14,15 +14,15 @@ OwnershipCreationRequest _$OwnershipCreationRequestFromJson(
   state: $enumDecode(_$OwnershipStateEnumMap, json['state']),
   totalSaleValue: (json['total_sale_value'] as num).toInt(),
   userId: (json['user_id'] as num).toInt(),
-  contractStartDate: json['contract_start_date'] != null
-      ? DateTime.parse(json['contract_start_date'] as String)
-      : null,
+  contractStartDate: json['contract_start_date'] == null
+      ? null
+      : DateTime.parse(json['contract_start_date'] as String),
 );
 
 Map<String, dynamic> _$OwnershipCreationRequestToJson(
   OwnershipCreationRequest instance,
 ) => <String, dynamic>{
-  'contract_start_date': instance.contractStartDate,
+  'contract_start_date': instance.contractStartDate?.toIso8601String(),
   'monthly_repayment_amount': instance.monthlyRepaymentAmount,
   'plot_id': instance.plotId,
   'state': instance.state,
