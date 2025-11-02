@@ -21,7 +21,7 @@ jobs:
         id: flutter_info
         run: |
           NAME=$(yq -r '.name' pubspec.yaml)
-          VERSION=v$(yq -r '.version' pubspec.yaml | tr '+' '_')
+          VERSION=$(yq -r '.version' pubspec.yaml | tr '+' '_')
           echo "name=$NAME" >> $GITHUB_OUTPUT
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "name=$NAME"
@@ -31,6 +31,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          echo $VERSION
 
           git tag -a $VERSION -m "V$VERSION - Release"
           git push origin $VERSION
