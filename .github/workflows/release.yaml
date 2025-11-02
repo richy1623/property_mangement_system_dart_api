@@ -33,7 +33,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           COMMIT_SHA=$(git rev-parse HEAD) # Get the current commit SHA
-          git tag -a $VERSION $COMMIT_SHA -m "V$VERSION - Release"
+          git tag -a $VERSION -m "V$VERSION - Release"
           git push origin $VERSION
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
