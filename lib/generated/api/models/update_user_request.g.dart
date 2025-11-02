@@ -15,7 +15,9 @@ UpdateUserRequest _$UpdateUserRequestFromJson(Map<String, dynamic> json) =>
       isEmployee: json['is_employee'] as bool?,
       name: json['name'] as String?,
       password: json['password'] as String?,
-      permissions: json['permissions'] as List<dynamic>?,
+      permissions: (json['permissions'] as List<dynamic>?)
+          ?.map((e) => $enumDecode(_$PermissionTypeEnumMap, e))
+          .toList(),
       userName: json['user_name'] as String?,
     );
 
@@ -31,3 +33,16 @@ Map<String, dynamic> _$UpdateUserRequestToJson(UpdateUserRequest instance) =>
       'user_id': instance.userId,
       'user_name': instance.userName,
     };
+
+const _$PermissionTypeEnumMap = {
+  PermissionType.employee: 'Employee',
+  PermissionType.viewPayments: 'ViewPayments',
+  PermissionType.modifyPayments: 'ModifyPayments',
+  PermissionType.viewUsers: 'ViewUsers',
+  PermissionType.modifyUsers: 'ModifyUsers',
+  PermissionType.viewProperties: 'ViewProperties',
+  PermissionType.modifyProperties: 'ModifyProperties',
+  PermissionType.viewOwnerships: 'ViewOwnerships',
+  PermissionType.modifyOwnerships: 'ModifyOwnerships',
+  PermissionType.viewReports: 'ViewReports',
+};

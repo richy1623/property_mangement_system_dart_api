@@ -9,7 +9,9 @@ part of 'get_plots_request.dart';
 GetPlotsRequest _$GetPlotsRequestFromJson(Map<String, dynamic> json) =>
     GetPlotsRequest(
       allowedOwnershipStates:
-          json['allowed_ownership_states'] as List<dynamic>?,
+          (json['allowed_ownership_states'] as List<dynamic>?)
+              ?.map((e) => $enumDecode(_$OwnershipStateEnumMap, e))
+              .toList(),
       estateId: (json['estate_id'] as num?)?.toInt(),
       phase: json['phase'] as String?,
       plotNumber: json['plot_number'] as String?,
@@ -22,3 +24,10 @@ Map<String, dynamic> _$GetPlotsRequestToJson(GetPlotsRequest instance) =>
       'phase': instance.phase,
       'plot_number': instance.plotNumber,
     };
+
+const _$OwnershipStateEnumMap = {
+  OwnershipState.pendingContract: 'PendingContract',
+  OwnershipState.activePayment: 'ActivePayment',
+  OwnershipState.paid: 'Paid',
+  OwnershipState.defaulted: 'Defaulted',
+};
