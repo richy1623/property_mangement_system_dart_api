@@ -4,6 +4,8 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
+import 'ownership_state.dart';
+
 part 'plot.g.dart';
 
 /// Represents a plot of land within an estate.
@@ -16,10 +18,15 @@ class Plot {
     required this.plotId,
     required this.plotNumber,
     required this.width,
+    this.currentOwnershipStatus,
   });
   
   factory Plot.fromJson(Map<String, Object?> json) => _$PlotFromJson(json);
   
+  /// Width of the plot in meters.
+  @JsonKey(name: 'current_ownership_status')
+  final OwnershipState? currentOwnershipStatus;
+
   /// ID of the estate the plot belongs to.
   @JsonKey(name: 'estate_id')
   final int estateId;
